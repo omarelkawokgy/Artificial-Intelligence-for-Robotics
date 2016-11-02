@@ -86,7 +86,9 @@ def move(p, motion, p_move, p_stay):
     
     for i in range(len(p)):
         for j in range(len(p[i])):
-            calcMoveUpdate[i][j] = (p_move * p[(i - motion[0]) % len(p)][(j - motion[1]) % len(p[i])]) + ((p_stay) * p[i][j])
+	    # motion[0] the index of moving up or down >> row >> i
+	    # motion[1] the index of moving left or right >> column >> j
+            calcMoveUpdate[i][j] = (p_move * p[(i - motion[0]) % len(p)][(j - motion[1]) % len(p[i])]) + (p_stay * p[i][j])
             
     return calcMoveUpdate
 
